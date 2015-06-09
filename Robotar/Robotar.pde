@@ -60,7 +60,7 @@ void draw() {
   }
 }
 
-
+//evento para precionar teclas
 void keyPressed(){
   //barra de spacio 
   if(key == ' '){
@@ -68,7 +68,8 @@ void keyPressed(){
   }
   
   if(key == 'a'){
-    save("imagen001.png");
+    //guardar muchas imagenes al precionar la tecla a
+    save("imagen"+frameCount+".png");
   }
   
   
