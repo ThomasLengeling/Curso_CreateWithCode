@@ -9,39 +9,49 @@ float colorElipseB = 0;
 
 float velocidad = 2.5;
 
-void setup(){
+void setup() {
   size(1024, 768);
- 
 }
 
-void draw(){
-  
+void draw() {
+
   //RGB, alpha.
   //tres valors, ultimo opacidad
   fill(255, 255, 255, 5);
   rect(0, 0, width, height);
-  
+
   //width -> tamano en X
   //Height -> tamano en Y
   //rect(0, 0, 400, 400);
-  
+
   //fill(0, 0, 255, 5);
   //rect(500, 0, 400, 400);
-  
+
   fill(colorElipseR, colorElipseG, colorElipseB);
   ellipse(posX, posY, 50, 50);
-  
+
   posX = posX + velocidad;
-  
-  if(posX > width){
-    posX =  0;
+
+  if (posX > width) {
+
+    //velocidad = -1* velocidad;
+    velocidad = -velocidad;
     posY =  random(500);
     colorElipseR = random(255);
     colorElipseG = random(255);
     colorElipseB = random(255);
   }
+
+
+  if (posX < 0) {
+  }
+
+  if (posY > height) {
+  }
+
+  if ( posY < 0) {
+  }
   
   
 }
-  
-  
+
