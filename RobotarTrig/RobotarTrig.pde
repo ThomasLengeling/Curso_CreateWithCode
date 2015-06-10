@@ -30,12 +30,13 @@ void draw() {
   //fill(0, 0, 255, 5);
   //rect(500, 0, 400, 400);
   
-  //color valor
+  //color valor con funciones trigonometricas 
   float valor = cos(theta)*100;
   theta = theta  + 0.01;
 
  // fill(colorElipseR, colorElipseG, colorElipseB);
-  fill(valor, 0, valor);
+  noStroke();
+  fill(0, valor*1.5, valor, 150);
   ellipse(posX, posY, 50, 50);
 
   //Solamente en X
