@@ -1,29 +1,50 @@
 boolean rebote()
 {
-  return intersects(bolaPosX, bolaPosY, bolaTam, rectPosX, rectPosY, rectWidth, rectHeight);
+  return rectBall(rectPosX, rectPosY, rectWidth, rectHeight, bolaPosX, bolaPosY, bolaTam/2.0);
 }
 
-boolean intersects(float circuloX, float circuloY, float rad, float rectX, float rectY, float rectW, float rectH)
-{
-  float circleDistanceX = abs(circuloX - rectX);
-  float circleDistanceY = abs(circuloY - rectY);
+boolean rectBall(float rx, float ry, float rw, float rh, float bx, float by, float d) {
 
-  if (circleDistanceX > (rectW + rad/2.0)) { 
-    return false;
-  }
-  if (circleDistanceY > (rectH + rad/2.0)) { 
-    return false;
-  }
-
-  if (circleDistanceX <= (rectW/2.0)) { 
+  if (bx+d/2 >= rx-rw/2 && bx-d/2 <= rx+rw/2 && abs(ry-by) <= d/2) {
     return true;
-  } 
-  if (circleDistanceY <= (rectH/2.0)) { 
+  }
+  
+  else if (by+d/2 >= ry-rh/2 && by-d/2 <= ry+rh/2 && abs(rx-bx) <= d/2) {
     return true;
   }
 
-  float cornerDistance_sq = pow((circleDistanceX - rectW/2.0), 2) +
-                            pow((circleDistanceY - rectH/2.0), 2);
+  float xDist = (rx-rw/2) - bx; 
+  float yDist = (ry-rh/2) - by;
+  float shortestDist = sqrt((xDist*xDist) + (yDist * yDist));
 
-  return (cornerDistance_sq <= (pow(rad/2.0, 2)));
+  // upper-right
+  xDist = (rx+rw/2) - bx;
+  yDist = (ry-rh/2) - by;
+  float distanceUR = sqrt((xDist*xDist) + (yDist * yDist));
+  if (distanceUR < shortestDist) { 
+    shortestDist = distanceUR;    
+  }
+
+  // lower-right
+  xDist = (rx+rw/2) - bx;
+  yDist = (ry+rh/2) - by;
+  float distanceLR = sqrt((xDist*xDist) + (yDist * yDist));
+  if (distanceLR < shortestDist) {
+    shortestDist = distanceLR;
+  }
+
+  // lower-left
+  xDist = (rx-rw/2) - bx;
+  yDist = (ry+rh/2) - by;
+  float distanceLL = sqrt((xDist*xDist) + (yDist * yDist));
+  if (distanceLL < shortestDist) {
+    shortestDist = distanceLL;
+  }
+
+  if (shortestDist < d/2) { 
+    return true;            
+  }
+  else {                    
+    return false;
+  }
 }

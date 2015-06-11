@@ -33,12 +33,15 @@ void draw() {
   //dibujar ellipse con centro (bolaPosX, bolaPosY) 
   //con tamano (bolaWidth, bolaHeight)
   noStroke();
-  fill(0);
+  fill(0); //negro 
   ellipse(bolaPosX, bolaPosY, bolaTam, bolaTam);
 
 
   //Dibujar el Rectangulo
   //posicion esquina superior izquierda (rectPosX, rectPosY)
+  rectPosX = mouseX;
+  rectPosY = mouseY;
+  rectMode(CENTER);
   rect(rectPosX, rectPosY, rectWidth, rectHeight);
 
   //actualizar las posiciones de la bola
@@ -53,19 +56,19 @@ void draw() {
   }
 
   //Rebotar con las paredes
-  if (bolaPosX > width){
+  if (bolaPosX > width) {
     bolaVelX  = -bolaVelX;
   }
 
-  if (bolaPosY > height){
+  if (bolaPosY > height) {
     bolaVelY  = -bolaVelY;
   }
 
-  if (bolaPosY < 0){
+  if (bolaPosY < 0) {
     bolaVelY  = -bolaVelY;
   }
-  
-  if (bolaPosX < 0){
+
+  if (bolaPosX < 0) {
     bolaVelX  = -bolaVelX;
   }
 }
