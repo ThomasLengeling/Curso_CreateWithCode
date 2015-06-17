@@ -2,9 +2,9 @@ import processing.serial.*;
 
 Serial port;
 
-String puertoUSB = "/dev/tty.usbmodemfa131";
+String puertoUSB = "COM18";
 int   bps =    9600;
-int valor  = 0;
+int   valor  = 0;
 
 void setup(){
   size(600, 600);
@@ -16,11 +16,7 @@ void draw(){
   
   if( port.available() > 0) {
      int valor = port.read();
-  
+    
+     
   }
-}
-
-
-void serialEvent(int evento){
-   println(evento); 
 }
