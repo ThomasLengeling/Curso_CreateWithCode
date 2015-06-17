@@ -16,6 +16,7 @@ void loop() {
 
   //mandar a processing
   Serial.write(val);
+  delay(100);
 
   if (val > 512)
     digitalWrite(LED9, HIGH);
