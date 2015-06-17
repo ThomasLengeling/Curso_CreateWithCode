@@ -33,7 +33,7 @@ void drawButton() {
   ellipse(circleX, circleY, circleSize, circleSize);
 }
 
-void update(int x, int y) {
+void updateButton(int x, int y) {
   if ( overCircle(circleX, circleY, circleSize) ) {
     circleOver = true;
     rectOver = false;
