@@ -12,11 +12,16 @@ void setup() {
 }
 
 void loop() {
+  //valores -> 0, 1023
   int  val = analogRead(pinPienzo0);
 
   //mandar a processing
+ // Serial.println(val);
   Serial.write(val);
   delay(100);
+  
+  
+  //Serial.write(val);
 
   if (val > 512)
     digitalWrite(LED9, HIGH);

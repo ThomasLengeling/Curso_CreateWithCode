@@ -1,7 +1,6 @@
 
 void setup() {
   size(640, 360);
-  setupSerpiente();
 }
 
 void draw() {

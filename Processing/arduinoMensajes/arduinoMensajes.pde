@@ -16,7 +16,11 @@ void draw(){
   
   if( port.available() > 0) {
      int valor = port.read();
-    
+     
+     //lo que llega
+     if(valor > 600){
+       
+     }
      
   }
 }

@@ -9,7 +9,7 @@
         Echo: Echo (OUTPUT) - Pin 12
         GND: GND
  */
-
+int LED_13 = 13;
 int trigPin = 11;    //Trig - green Jumper
 int echoPin = 12;    //Echo - yellow Jumper
 long duration, cm, inches;
