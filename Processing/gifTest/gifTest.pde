@@ -10,9 +10,9 @@ void setup() {
   for (int i = 0; i < 45; i++) {
     println(i);
     if (i < 10) {
-      img[i] = loadImage("data/frame_00"+i+".gif");
+      img[i] = loadImage("frame_00"+i+".gif");
     } else {
-      img[i] = loadImage("data/frame_0"+i+".gif");
+      img[i] = loadImage("frame_0"+i+".gif");
     }
   }
   
